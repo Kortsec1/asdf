@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # 기본 포트 번호 설정
-PORT=1337
+PORT=6000
 
 echo "Starting challenge on port $PORT..."
 

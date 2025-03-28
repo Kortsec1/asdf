@@ -8,11 +8,11 @@ RUN apt update && apt install -y socat
 WORKDIR /chall/prob01
 
 # 문제 바이너리와 flag 복사
-COPY prob01/prob01_binary /chall/prob01/prob01_binary
+COPY prob01/prob01 /chall/prob01/prob01
 COPY prob01/flag /chall/prob01/flag
 
 # 실행 권한 부여
-RUN chmod +x /chall/prob01/prob01_binary
+RUN chmod +x /chall/prob01/prob01
 
 # 사용자 추가
 RUN useradd -m ctf
@@ -21,4 +21,4 @@ RUN useradd -m ctf
 RUN chown -R ctf:ctf /chall/prob01
 
 # socat을 사용해 포트를 리스닝하고, 문제 바이너리 실행
-CMD su ctf -c "socat TCP-LISTEN:1337,reuseaddr,fork EXEC:/chall/prob01/prob01_binary,stderr"
+CMD su ctf -c "socat TCP-LISTEN:6000,reuseaddr,fork EXEC:/chall/prob01/prob01,stderr"
